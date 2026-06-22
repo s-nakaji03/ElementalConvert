@@ -1,0 +1,14 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Action": [
+				"states:StartExecution"
+			],
+			"Resource": [
+				"arn:aws:states:ap-northeast-1:<AccountID>:stateMachine:<Stepfunctions-Name>"
+			],
+			"Effect": "Allow"
+		}
+	]
+}
