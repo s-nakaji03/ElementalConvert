@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Get*",
+        "s3:List*"
+      ],
+      "Resource": [
+        "s3://<S3Bucket-name>/mp4/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Put*"
+      ],
+      "Resource": [
+        "s3://<S3Bucket-name>/convert/*"
+      ]
+    }
+  ]
+}
