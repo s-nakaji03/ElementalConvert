@@ -5,9 +5,9 @@
       "Type": "Task",
       "Resource": "arn:aws:states:::mediaconvert:createJob.sync",
       "Arguments": {
-        "JobTemplate": "arn:aws:mediaconvert:ap-northeast-1:xxxxxxxxxxxxxxx:jobTemplates/xxxxxxxxxxxxxxxxxxxxx",
-        "Queue": "arn:aws:mediaconvert:ap-northeast-1:xxxxxxxxxxxxxxx:queues/xxxxxxxxxxxxxxxxxx",
-        "Role": "arn:aws:iam::xxxxxxxxxxxxxxxx:role/service-role/MediaConvert_Default_Role",
+        "JobTemplate": "arn:aws:mediaconvert:ap-northeast-1:<AccountID>:jobTemplates/<Job-template-name>",
+        "Queue": "arn:aws:mediaconvert:ap-northeast-1:<AccountID>:queues/<job-queues-name>",
+        "Role": "arn:aws:iam::<AccountID>:role/service-role/MediaConvert_Default_Role",
         "Settings": {
           "Inputs": [
             {
