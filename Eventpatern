@@ -1,0 +1,14 @@
+{
+  "detail-type": ["Object Created"],
+  "source": ["aws.s3"],
+  "detail": {
+    "bucket": {
+      "name": ["insert-Bucketname"]
+    },
+    "object": {
+      "key": [{
+        "wildcard": "mp4/*.mp4"
+      }]
+    }
+  }
+}
