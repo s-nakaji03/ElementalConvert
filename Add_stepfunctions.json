@@ -1,0 +1,39 @@
+{
+  "StartAt": "CreateJob",
+  "States": {
+    "CreateJob": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::mediaconvert:createJob.sync",
+      "Arguments": {
+        "JobTemplate": "arn:aws:mediaconvert:ap-northeast-1:<AccountID>:jobTemplates/example-dev-mp4-hls-abr-360-720",
+        "Queue": "arn:aws:mediaconvert:ap-northeast-1:<AccountID>:queues/example-dev-mp4-hls-conv",
+        "Role": "arn:aws:iam::<AccountID>:role/service-role/MediaConvert_Default_Role",
+        "Settings": {
+          "Inputs": [
+            {
+              "FileInput": "{% 's3://' & $states.input.detail.bucket.name & '/' & $states.input.detail.object.key %}",
+              "CaptionSelectors": {
+                "Captions Selector 1": {
+                  "SourceSettings": {
+                    "SourceType": "SRT",
+                    "FileSourceSettings": {
+                      "SourceFile": "{% 's3://' & $states.input.detail.bucket.name & '/' & $substringBefore($states.input.detail.object.key, '.mp4') & '.srt' %}"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "Tags": {
+          "Cost": "example-dev"
+        }
+      },
+      "End": true,
+      "QueryLanguage": "JSONata",
+      "TimeoutSeconds": 600
+    }
+  },
+  "TimeoutSeconds": 660,
+  "Comment": "For converting a MP4 media (with an associated SRT subtitle of the same base filename) to HLS (ABR 360p/720p, WebVTT captions)"
+}
