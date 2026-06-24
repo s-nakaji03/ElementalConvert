@@ -1,0 +1,6 @@
+{
+  "Status": "FAILED",
+  "InputFile": "{% $inputKey %}",
+  "Error": "{% $errorInfo %}"
+}
+
