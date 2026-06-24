@@ -1,0 +1,16 @@
+{
+  "Status": "SUCCESS",
+  "InputFile": "{% $inputKey %}",
+  "JobId": "{% $states.input.Job.Id %}"
+}
+
+{
+  "TopicArn": "arn:aws:sns:ap-northeast-1:<AccountID>:hls-SNSTopic-pyeaj7YvvJEp",
+  "Subject": "[example-dev] HLS変換 成功",
+  "Message": {
+    "Status": "SUCCESS",
+    "InputFile": "{% $inputKey %}",
+    "JobId": "{% $states.input.Job.Id %}"
+  }
+}
+
